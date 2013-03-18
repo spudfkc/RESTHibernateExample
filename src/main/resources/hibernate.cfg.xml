@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <!-- Database Connection Settings -->
+    <property name="connection.driver_class">org.apache.derby.jdbc.EmbeddedDriver</property>
+    <property name="connection.url">jdbc:derby:hibernateexample;create=true</property>
+    <property name="connection.username">app</property>
+    <property name="connection.password">default</property>
+
+    <!-- JDBC Connection Pool -->
+    <property name="connection.pool_size">1</property>
+
+    <property name="dialect">org.hibernate.dialect.DerbyDialect</property>
+    
+    <!-- Enable Hibernate Automatic Session Context Management -->
+    <property name="current_session_context_class">thread</property>
+
+    <!-- Disable the Second-Level Cache -->
+    <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+    <!-- Echo All Executed SQL to STDOUT -->
+    <property name="show_sql">true</property>
+    <property name="hbm2ddl.auto">validate</property>
+
+    <!-- MAPPINGS -->
+    <mapping class="ncc.examples.hibernate.Employee"/>
+
+  </session-factory>
+</hibernate-configuration>
